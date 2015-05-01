@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'Modern-Sans';
+    src: url('assets/fonts/MODERNE SANS.eot');
+    /* IE9 Compat Modes */
+
+    src: url('assets/fonts/MODERNE SANS.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+
+    url('assets/fonts/MODERNE SANS.woff') format('woff'),
+    /* Modern Browsers */
+
+    url('assets/fonts/MODERNE SANS.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+
+    url('assets/fonts/MODERNE SANS.svg#bcb65e5f871894c6b949303cede8fd32') format('svg');
+    /* Legacy iOS */
+
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Vermin-Vibes-Roundhouse';
+    src: url('../fonts/vermin_vibes_roundhouse.eot');
+    /* IE9 Compat Modes */
+
+    src: url('../fonts/vermin_vibes_roundhouse.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+
+    url('../fonts/vermin_vibes_roundhouse.woff') format('woff'),
+    /* Modern Browsers */
+
+    url('../fonts/vermin_vibes_roundhouse.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+
+    url('../fonts/vermin_vibes_roundhouse.svg#f6ea8dcb8a52eb739689f3265c11fe4e') format('svg');
+    /* Legacy iOS */
+
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Klinic Slab Book';
+    src: url('../fonts/KlinicSlabBook.eot');
+    /* IE9 Compat Modes */
+
+    src: url('../fonts/KlinicSlabBook.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+
+    url('../fonts/KlinicSlabBook.woff') format('woff'),
+    /* Modern Browsers */
+
+    url('../fonts/KlinicSlabBook.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+
+    url('../fonts/KlinicSlabBook.svg#ef4b9a9c8bad3bc3791ab8a2756f476c') format('svg');
+    /* Legacy iOS */
+
+    font-style: normal;
+    font-weight: 400;
+}
+
+body {
+    background-color: rgb(240, 245, 248);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-style: normal;
+    font-family: 'Vermin-Vibes-Roundhouse', cursive;
+    font-size: 200%;
+}
+
+p,
+ul,
+li,
+span,
+table,
+tr,
+tdf {
+    font-family: 'Klinic Slab Book' serif;
+}
+
+.sectionHeader {
+    font-size: 150%;
+    padding: 5px;
+    background-color: rgb(45, 63, 81);
+    color: rgb(206, 211, 215);
+}
+
+.highlight {
+    background-color: red;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(226, 176, 175);
+    transition: all .3s ease-in-out;
+}
+
+a:hover {
+    color: rgb(204, 79, 67);
+}
