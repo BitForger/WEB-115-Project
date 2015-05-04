@@ -6,11 +6,4 @@
 
 
 
-function stringReverse(text) {
-    var revString;
 
-    revString = toString(text.reverse);
-    console.log(revString);
-
-    return revString;
-}

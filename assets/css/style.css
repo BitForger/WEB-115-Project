@@ -82,8 +82,13 @@ li,
 span,
 table,
 tr,
-tdf {
+td {
     font-family: 'Klinic Slab Book' serif;
+}
+
+ul > li {
+    list-style-type: disc;
+    list-style-position: inside;
 }
 
 .sectionHeader {
