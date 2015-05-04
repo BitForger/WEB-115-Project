@@ -61,6 +61,24 @@
     font-weight: 400;
 }
 
+@font-face {
+    font-family: 'octicons';
+    src: url('../fonts/octicons.eot?#iefix') format('embedded-opentype'),
+    /* IE9 Mode*/
+
+    url('../fonts/octicons.woff') format('woff'),
+    /*        Modern Browsers*/
+
+    url('../fonts/octicons.ttf') format('truetype'),
+    /*        Safari, Andriod, iOS*/
+
+    url('../fonts/octicons.svg#octicons') format('svg');
+    /*    Legacy iOS*/
+
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     background-color: rgb(240, 245, 248);
 }
@@ -85,10 +103,17 @@ tr,
 td {
     font-family: 'Klinic Slab Book' serif;
 }
+/*Remove bullets*/
 
 ul > li {
-    list-style-type: disc;
-    list-style-position: inside;
+    list-style-type: none;
+}
+/*Change bullets to icon*/
+
+ul:before li:before {
+    font-family: 'FontAwesome';
+    content: '\f078';
+    margin: 0 5px 0 -15px;
 }
 
 .sectionHeader {
@@ -110,4 +135,27 @@ a {
 
 a:hover {
     color: rgb(204, 79, 67);
+}
+
+.circular {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    background: url(../img/pic.jpg) no-repeat;
+    vertical-align: middle;
+    clear: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.circular img {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+img {
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
 }

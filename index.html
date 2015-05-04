@@ -4,7 +4,7 @@
 <head>
     <!--
    Author: Noah Kovacs
-   Date: 22 April 2015
+   Date: 04 May 2015
    -->
     <meta charset="UTF-8">
     <meta name="author" content="Noah Kovacs">
@@ -13,10 +13,12 @@
     <title>My Resumé</title>
     <!--    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>-->
 
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/flexboxgrid.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/animate.css" media="screen">
+    <link rel="stylesheet" href="assets/css/style.css" media="screen">
+    <link rel="stylesheet" href="assets/css/flexboxgrid.css" media="screen">
+    <link rel="stylesheet" href="assets/css/font-awesome.css" media="screen">
+    <link rel="stylesheet" href="assets/css/octicons.css" media="screen">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
 
     <script src="assets/js/jquery-2.1.3.min.js" type="text/javascript"></script>
     <script src="assets/js/index.js" type="text/javascript"></script>
@@ -44,23 +46,73 @@
             document.write("</a>");
         }
     </script>
+
+    <script type="text/javascript">
+        function setCircleState(id, color, state) {
+            // Fix state
+            if (state == 0)
+                state = 100;
+            else if (state == 100)
+                state = 0;
+
+            // Get context and calculate angle
+            var angle = state / 50 * Math.PI - 1 / 2 * Math.PI; // Convert to radians
+            var c = document.getElementById(id).getContext('2d'); // Get the drawing context
+
+            // Clear the drawing area
+            c.clearRect(0, 0, 50, 50);
+
+            // Configure line styles
+            c.lineWidth = 3;
+            c.strokeStyle = color;
+            c.lineCap = 'round';
+
+            // Draw circle
+            c.beginPath(); // Begin the path
+            c.moveTo(25, 2); // Move to the top
+            // Draw an arc
+            // Parameters: x, y (middle of the canvas), startAngle (on the top), endAngle (our angle), direction
+            c.arc(25, 25, 23, 3 / 2 * Math.PI, angle, false);
+            c.stroke(); // Stroke the path
+        }
+
+        function animateCircleState(id, color, begin, end) {
+            setCircleState(id, color, begin); // Draw the circle
+
+            if (begin < end) // Check if we should continue to draw
+            // set a timeout so it animates smoothly and not too fast
+                setTimeout(function () {
+                // Call animateCircleState recursively with new angle (begin + 1)
+                animateCircleState(id, color, begin + 1, end);
+            }, 3); // Adjust the time if you want to slow the animation
+        }
+    </script>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
-            <h2 class="animated rubberBand col-sm center-sm">Welcome to my resumé page</h2>
-            <p>Hi! I am Noah Kovacs, a highschool student with a passion for programming. Working with the latest technologies and making the most of modern design principles is my specialty.</p>
+            <div class="col-sm center-sm">
+                <!--                <div class="circular">-->
+                <img class="circular" src="assets/img/pic.jpg" alt="pic">
+                <!--                </div>-->
+                <h2 class="animated rubberBand">Welcome to my resumé page</h2>
+                <p>Hi! I am Noah Kovacs, a highschool student with a passion for programming. Working with the latest technologies and making the most of modern design principles is my specialty.</p>
+            </div>
+
         </div>
         <div class="row">
             <div class="col-md">
                 <h3 class="sectionHeader"><span class="highlight">&nbsp;</span> Work Experiance</h3>
                 <ul>
-                    <li>None other than work for fun
-                        <br> &not; A link to one of my works is available <a href="https://cyb3rwarri0r8.github.io/">here</a>
+                    <li>One of my personal sites
+                        <br>&thinsp;<i class="octicon octicon-chevron-right"></i> A link to one of my works is available <a href="https://cyb3rwarri0r8.github.io/">here</a>
                     </li>
                     <li>Web consulting for a friends company
-                        <br>&not; I assisted in setting up an e-commerce solution for his decal company here: <a href="http://act-graphics.com">http://act-graphics.com</a>
+                        <br>&thinsp;<i class="octicon octicon-chevron-right"></i> I set up an e-commerce solution for his decal company here: <a href="http://act-graphics.com" target="_blank">http://act-graphics.com</a>
+                    </li>
+                    <li>Homework from class
+                        <br>&thinsp;<i class="octicon octicon-chevron-right"></i> <a href="case1/skymap.htm" target="_window">Date-Time clock</a>
                     </li>
                 </ul>
             </div>
@@ -99,10 +151,10 @@
                 <ul>
                     <li>Durham Technical Community College</li>
                     <ul>
-                        <li>&ndash; CIS-110: Introduction to Computers</li>
-                        <li>&ndash; CIS-115: Introduction to Programming &amp; Logic</li>
-                        <li>&ndash; WEB-110: Internet/Web Fundamentals</li>
-                        <li>&ndash; WEB-115: Web Markup and Scripting</li>
+                        <li><i class="octicon octicon-chevron-right"></i> CIS-110: Introduction to Computers</li>
+                        <li><i class="octicon octicon-chevron-right"></i> CIS-115: Introduction to Programming &amp; Logic</li>
+                        <li><i class="octicon octicon-chevron-right"></i> WEB-110: Internet/Web Fundamentals</li>
+                        <li><i class="octicon octicon-chevron-right"></i> WEB-115: Web Markup and Scripting</li>
                     </ul>
                 </ul>
 
@@ -110,17 +162,51 @@
             <div class="col-md">
                 <h3 class="sectionHeader"><span class="highlight">&nbsp;</span> Skillset</h3>
                 <div class="row">
-                    <div class="col-sm">
-                        HTML
-                        <script type="text/javascript">
-                            var angle = state / 50 * Math.PI - 1 / 2 * Math.PI;
-                        </script>
-                    </div>
+
+                    <table>
+                        <tr>
+                            <td>HTML (95%)</td>
+                            <td>
+                                <canvas width="50" height="50" id="html" style="margin: 10px 0 0 30px"></canvas>
+                                <script type="text/javascript">
+                                    animateCircleState("html", "#fe1818", parseInt("0"), parseInt("95"));
+                                </script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CSS (75%)</td>
+                            <td>
+                                <canvas width="50" height="50" id="css" style="margin: 10px 0 0 30px"></canvas>
+                                <script type="text/javascript">
+                                    animateCircleState("css", "#fe1818", parseInt("0"), parseInt("75"))
+                                </script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript (80%)</td>
+                            <td>
+                                <canvas width="50" height="50" id="javascript" style="margin: 10px 0 0 30px"></canvas>
+                                <script type="text/javascript">
+                                    animateCircleState("javascript", "#fe1818", parseInt("0"), parseInt("80"));
+                                </script>
+                            </td>
+                        </tr>
+                    </table>
+
+
                 </div>
+
             </div>
         </div>
     </div>
 
+    <footer>
+        <div class="row center-md">
+            <div class="col-md">
+                <p>&copy; 2015 Noah Kovacs, All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
